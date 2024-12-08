@@ -22,6 +22,7 @@ for sym in actives:
                 """
     recom = get_gpt_recommendation(prompt)
     venta = json.loads(remove_code_delimiters(recom))
+    print(sym["simbolo"], info["porcentaje_diferencia"])
     if venta["accion"] == 'VENDER':
         sell_order = sell_crypto(sym["simbolo"])
         sell_order["id_transaccion"] = sym["id"]
