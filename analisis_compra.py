@@ -14,6 +14,7 @@ if balance > 5:
     prompt = f"""
     como experto en tradding de crypto divisas realiza un analisis de compra de los siguientes simbolos e indicame si es viable comprar o esperar y cuanto del presupuesto asignarias a cada una si es viable comprar
     tienes disponible el balance {balance} solo debes responder en el formato que se indica en la base de conocimientos solo opera con simbolos que tenga señal fuerte, ignorar cualquier simbolo que muestre señales confusas
+    instruccion importante si existe mas de un simbolo que es viable para comprar pero el presupuesto no alcanza para todos, prioriza el que tenga mejor señal de compra
     {data}
     """
 
