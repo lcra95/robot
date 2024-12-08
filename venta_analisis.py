@@ -17,7 +17,7 @@ for sym in actives:
     prompt = f"""
                 como experto en tradding de crypto divisas realiza un analisis de venta del siguiente simbolos e indicame si es viable vender o esperar actualmente tu balance para el simbolo {sym["simbolo"]} es
                 {balance} tu obejtivo es maximizar tus ganancias y reducir perdidas para lograr la meta establecida en la base de conocimientos 
-                analiza los suientes datos antes de decidir
+                analiza los suientes datos antes de decidir no te apresures a vender si no tienes una señal clara de venta
                 {sym}
                 """
     recom = get_gpt_recommendation(prompt)
