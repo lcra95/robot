@@ -1,0 +1,6 @@
+python-binance
+requests
+pandas
+numpy
+openai
+psycopg2-binary==2.9.7
