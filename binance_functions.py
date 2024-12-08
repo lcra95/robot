@@ -1,6 +1,7 @@
 from binance.client import Client
 import pandas as pd
 from config import BINANCE_API_KEY, BINANCE_SECRET_KEY
+from utilitarios import send_telegram_message
 # Configura tus claves de API
 
 client = Client(BINANCE_API_KEY, BINANCE_SECRET_KEY)
@@ -86,7 +87,7 @@ def buy_crypto(symbol, amount_usd):
         try:
             order = client.order_market_buy(symbol=symbol, quantity=quantity)
             print(f"Orden de compra ejecutada: {order}")
-            #send_telegram_message(f"Compra de {symbol} a {current_price} la cantidad de {quantity}")
+            send_telegram_message(f"Compra de {symbol} a {current_price} la cantidad de {quantity}")
             return order
         except Exception as e:
             print(f"Error al realizar la compra: {e}")
@@ -140,7 +141,7 @@ def sell_crypto(symbol):
             order = client.order_market_sell(symbol=symbol, quantity=quantity)
             
             print(f"Orden de venta ejecutada: {order}")
-            #send_telegram_message(f"Venta {symbol} la cantidad de {quantity}")
+            send_telegram_message(f"Venta {symbol} la cantidad de {quantity}")
             return order
         else:
 

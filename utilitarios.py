@@ -1,6 +1,9 @@
 from datetime import datetime
 import concurrent.futures
+
+import requests
 from indicadores import get_technical_indicators
+from config import TLG_TOKEN, CHAT_ID
 
 def fetch_indicators_for_symbols(symbols):
     """
@@ -106,3 +109,18 @@ def calculate_difference_and_time(sym, indicator):
     except Exception as e:
         print(f"Error al calcular diferencia y tiempo para {sym['simbolo']}: {e}")
         return None
+    
+def send_telegram_message(message):
+    token = TLG_TOKEN
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = {
+        "chat_id": CHAT_ID,
+        "text": message
+    }
+    try:
+
+        response = requests.post(url, data=data)
+        return response.json()
+
+    except Exception as e:
+        print(f"Error al enviar mensaje de Telegram: {e}")
